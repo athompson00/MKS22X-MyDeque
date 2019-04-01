@@ -68,6 +68,9 @@ public int size(){
   }
 
   public void addFirst(E element){
+    if (element == null){
+      throw new NullPointerException("element cannot be null");
+    }
     if (size == 0){
       data[start] = element;
       size++;
@@ -87,10 +90,10 @@ public int size(){
   }
 
   public void addLast(E element){
-    int a = data.length;
     if (element == null){
       throw new NullPointerException("Element cannot be null");
     }
+    int a = data.length;
     if (size == a){
       expand();
       end = size;
