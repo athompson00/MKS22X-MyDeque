@@ -145,10 +145,18 @@ public int size(){
     }
     return result;
   }
+
   public E getFirst(){
-
+    if (size == 0){
+      throw new NoSuchElementException("size cannot be 0");
+    }
+    return data[start];
   }
-  public E getLast(){
 
+  public E getLast(){
+    if (size == 0){
+      throw new NoSuchElementException("size cannot be 0");
+    }
+    return data[end];
   }
 }
