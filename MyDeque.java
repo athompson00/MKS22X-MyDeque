@@ -105,11 +105,45 @@ public int size(){
     size++;
     data[end] = element;
   }
+
   public E removeFirst(){
-
+    if (size == 0){
+      throw new NoSuchElementException("size cannot be 0");
+    }
+    E result = data[start];
+    int a = data.length;
+    data[start] = null;
+    if (start == a - 1){
+      start = 0;
+    } else {
+      start++;
+    }
+    size--;
+    if (size == 0){
+      end = 0;
+      start = 0;
+    }
+    return result;
   }
-  public E removeLast(){
 
+  public E removeLast(){
+    if (size == 0){
+      throw new NoSuchElementException("size cannot be 0");
+    }
+    E result = data[end];
+    int a = data.length;
+    data[end] = null;
+    if (end == 0){
+      end = a - 1;
+    } else {
+      end--;
+    }
+    size--;
+    if (size == 0){
+      end = 0;
+      start = 0;
+    }
+    return result;
   }
   public E getFirst(){
 
