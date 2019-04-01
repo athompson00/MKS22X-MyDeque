@@ -85,9 +85,25 @@ public int size(){
       data[start] = element;
     }
   }
-  /*
-  public void addLast(E element){
 
+  public void addLast(E element){
+    int a = data.length;
+    if (element == null){
+      throw new NullPointerException("Element cannot be null");
+    }
+    if (size == a){
+      expand();
+      end = size;
+      start = 0;
+    } else if (end == a - 1){
+      end = 0;
+    } else {
+      if (size != 0){
+        end++;
+      }
+    }
+    size++;
+    data[end] = element;
   }
   public E removeFirst(){
 
@@ -100,5 +116,5 @@ public int size(){
   }
   public E getLast(){
 
-  }*/
+  }
 }
